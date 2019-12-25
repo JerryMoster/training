@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,width=device-width" />
+		<meta charset="UTF-8">
+		<title>今周讲习---第一期</title>
+		<link rel="stylesheet" href="libs/video-js.css" />
+		<link rel="stylesheet" href="static/css/index-six.css" />
+	</head>
+	<body>
+		<!----------------second-------------------->
+		<!---------------banner图-------------------->
+		<div class="six_top" style="background: url(img_app/one-bg.jpg) no-repeat;background-size: 100% 100%;">
+		</div>
+		<div class="inner content">
+			<ul class="navbar clearfix ">
+				<li class="checked">
+					<h2>讲习</h2>
+				</li>
+				<li>
+					<h2>资料</h2>
+				</li>
+				<li>
+					<h2>留声机</h2>
+				</li>
+			</ul>
+			
+			<!---------------主体内容切换-------------------->
+			<div class="main">
+				
+				<!---------------讲习-------------------->
+				<div class="main-cont jiangxi">
+					<ul class="jiangxi_title clearfix">
+						<li class="shiping_xz">一周概览</li>
+						<li>专题研习</li>
+					</ul>
+					<ul class="jiangxi_shiping">
+						<li class="sp">
+							<div class="video01">
+								<video id="my_video_1" class="video-js vjs-default-skin showw " controls  preload="auto" poster="static/img/gaisu.png" width="100%" height="100%" data-setup="{}">
+									<source src="mp4/one01.mp4" type='video/mp4'>  
+								</video>
+							</div>
+							<p>2019年4月14日至20日，习总书记有8次活动，分别是：到重庆的考察；主持召开解决“两不愁三保障”突出问题的座谈会；主持中共中央政治局会议，分析研究当前经济形势和经济工作，听取二〇一八年脱贫攻坚成效考核等情况汇报，审议《中国共产党宣传工作条例》；主持中共中央政治局第十四次集体学习；在《求是》杂志发表重要文章《一个国家、一个民族不能没有灵魂》；复信美国伊利诺伊州北奈尔斯高中学生；就法国巴黎圣母院发生火灾向法国总统马克龙致慰问电；同巴林国王哈马德互致贺电，热烈庆祝两国建交30周年。</p>
+						</li>
+						<li class="sp hide">
+							<div class="video01">
+								<video id="my_video_2" class="video-js vjs-default-skin showw " controls  preload="auto" poster="static/img/zhuanti.png" width="100%" height="100%" data-setup="{}">
+									<source src="mp4/one02.mp4" type='video/mp4'>  
+								</video>
+							</div>
+							<p>2019年4月15日至17日，习总书记在重庆考察并主持召开解决“两不愁三保障”突出问题座谈会。习总书记会上发表重要讲话，强调统一思想一鼓作气顽强作战越战越勇，着力解决“两不愁三保障”突出问题。</p>
+						</li>
+					</ul>
+				</div>
+				
+				<!---------------资料-------------------->
+				<div class="main-cont ziliao hide" style="width: 100%;height: 100%;">
+					<img src="img_app/one_06.jpg" alt=""  style="width: 100%;height: 100%;"/>
+					<img src="img_app/one_07.jpg" alt=""  style="width: 100%;height: 100%;"/>
+					<img src="img_app/one_08.jpg" alt=""  style="width: 100%;height: 100%;"/>
+					<img src="img_app/one_09.jpg" alt=""  style="width: 100%;height: 100%;"/>
+					<img src="img_app/one_10.jpg" alt=""  style="width: 100%;height: 100%;"/>
+					<img src="img_app/one_11.jpg" alt=""  style="width: 100%;height: 100%;"/>
+				</div>
+				
+				<!---------------留声机-------------------->
+				<div class="main-cont liushengji hide">
+					<ul class="liushengji_list">
+						<li class="voice01">
+							<h2>习近平2019年4月15日在重庆考察</h2>
+							<img class="voice " src="static/img/voice.jpg" alt="" />
+							<img class="pic" src="img_app/one-voice (01).jpg" alt="" />
+						</li>
+						<li class="voice02">
+							<h2>习近平2019年4月15日至17日在重庆考察并主持召开解决“两不愁三保障”突出问题座谈会</h2>
+							<img class="voice " src="static/img/voice.jpg" alt="" />
+							<img class="pic" src="img_app/one-voice (02).jpg" alt="" />
+						</li>
+					</ul>
+					<ul id="testDrag" class="test-drag">
+						<li class="hide a1"><audio id="audio1" class="voice_one b1" src="mp3/one-voice01.mp3" controls="controls"></audio></li>
+						<li class="hide a2"><audio id="audio2" class="voice_one b2" src="mp3/one-voice02.mp3" controls="controls"></audio></li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="libs/jquery-1.11.1.min.js"></script>
+	<script src="libs/video.js"></script>
+    <script src="libs/videojs.disableProgress.js"></script>
+	<script>
+		videojs.options.flash.swf = "libs/video-js.swf";
+        videojs.options.flash.ttf = "libs/font/vjs.ttf";
+        videojs.options.flash.woff = "libs/font/vjs.woff";
+	</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+	        function audioNoPlay() {
+	            $('.b1')[0].pause();
+	            $('.b2')[0].pause();
+	            document.addEventListener("WeixinJSBridgeReady", function () {
+	                $('.b1')[0].pause();
+		            $('.b2')[0].pause();
+	            }, false);
+	        }
+	        audioNoPlay();
+	    });
+		
+		$('.liushengji_list li').click(function(){
+			$(this).addClass('aw').siblings().removeClass('aw')
+		})
+	    $('.navbar li').click(function(){
+	    	var myPlayer01 = videojs('my_video_1');
+			var myPlayer02 = videojs('my_video_2');
+	    	myPlayer01.pause();
+	        myPlayer02.pause();
+	        $('.b1')[0].pause();
+            $('.b2')[0].pause();
+	    	$(this).addClass('checked').siblings().removeClass('checked')
+	    	$('.main-cont').eq($(this).index()).show().siblings().hide()
+	    	
+	    })
+	   
+	    $('.jiangxi_title li').click(function(){
+	    	$(this).addClass('shiping_xz').siblings().removeClass('shiping_xz')
+	    	$('.sp').eq($(this).index()).show().siblings().hide()
+//	    	console.log($(this).index())
+	    	var myPlayer01 = videojs('my_video_1');
+			var myPlayer02 = videojs('my_video_2');
+	    	myPlayer01.pause();
+	        myPlayer02.pause();
+	         $('#my_video_1').click(function () {
+	//		        myPlayer01.pause();
+		        myPlayer02.pause();
+		    });
+	         $('#my_video_2').click(function () {
+		        myPlayer01.pause();
+	//	        myPlayer02.pause();
+		    });
+	    })
+		
+		$('.voice01').click(function(){
+			$('.a1').show().siblings().hide()
+				$('.b1')[0].play();
+	            $('.b2')[0].pause();
+		})
+		
+		$('.voice02').click(function(){
+			$('.a2').show().siblings().hide()
+				$('.b1')[0].pause();
+	            $('.b2')[0].play();
+		})
+		
+		$(window).scroll(function(){
+			var Height = $('.six_top').height()
+			var top = $(document).scrollTop(); 
+			if( top > Height){
+				$('.navbar').addClass('nav-fixed')
+			}else{
+				$('.navbar').removeClass('nav-fixed')
+			}
+		})
+
+		$(function() {
+		    var dataVideo = [];
+		    var dataAudio = [];
+		    var oldDataVideo = [];
+		    var oldDataAudio = [];
+		
+		    function onloand() {
+		        //定时传递数据到main.html
+		        setInterval(function() {
+		            dataVideo = [];
+		            $("video").each(function() {
+		                var id = this.id;
+		                var myPlay = videojs(id);
+		                var bfb = parseInt(myPlay.currentTime() / myPlay.duration() * 100);
+		                var sendOld = false;
+		                if (oldDataVideo) {
+		                    for (var i = 0; i < oldDataVideo.length; i++) {
+		                        var name = oldDataVideo[i].name;
+		                        var oldbfb = oldDataVideo[i].bfb;
+		                        //发送老数据
+		                        if (id == name && bfb < oldbfb) {
+		                            dataVideo.push(oldDataVideo[i]);
+		                            sendOld = true;
+		                            break;
+		                        }
+		                    }
+		                }
+		                if (!sendOld) {
+		                    var temp = {};
+		                    temp.name = id;
+		                    temp.bfb = bfb
+		                    dataVideo.push(temp);
+		                }
+		
+		            })
+		
+		            // 音频
+		            dataAudio = [];
+		            $("audio").each(function() {
+		                // console.log(this.id)
+		                var id = this.id;
+		                // var myPlay = videojs(this.id);
+		                var bfb = parseInt(this.currentTime / this.duration * 100);
+		                var aOld = false
+		                if(oldDataAudio) {
+		                    for( var i=0; i < oldDataAudio.length; i++){
+		                        var name = oldDataAudio[i].name
+		                        var oldbfb = oldDataAudio[i].bfb
+		                        // 发送旧数据
+		                        if( id == name && bfb < oldbfb){
+		                            dataAudio.push(oldDataAudio[i])
+		                            aOld = true
+		                            break
+		                        }
+		                    }
+		                }
+		                if(!aOld) {
+		                    var temp = {};
+		                    temp.name = id;
+		                    temp.bfb = bfb
+		                    dataAudio.push(temp);
+		                }
+		            })
+		            // console.log(data);
+		            window.parent.postMessage({
+		                dataVideo: dataVideo,
+		                dataAudio: dataAudio
+		            }, '*');
+		        }, 1500)
+		    }
+		
+		    window.onload = function() {
+		        //服务器传送过来的值,初始化音视频播放位置
+		        var reactiveFlag = false
+		        window.addEventListener('message', function(e) {
+		            var canDrag = e.data.canDrag;
+		            if (!reactiveFlag) {
+		                // 视频
+		                var data = e.data.dataVideo;
+		                oldDataVideo = data;
+		                if (data) {
+		                    $("video").each(function() {
+		                        var id = this.id;
+		                        var Play = videojs(id)
+		                        Play.on('firstplay', function() {
+		                            var name = id;
+		                            for (var i = 0; i < data.length; i++) {
+		                                var temp = data[i];
+		                                if (temp.name != name) continue;
+		                                this.currentTime(this.duration() * (temp.bfb /
+		                                    100));
+		                            }
+		                        });
+		
+		                    })
+		                }
+		
+		                // 音频
+		                var dataAudio = e.data.dataAudio;
+		                if (dataAudio) {
+		                    $("audio").each(function() {
+		                        var id = this.id;
+		                        var audioPlay = document.getElementById(id);
+		                        audioPlay.load();
+		                        audioPlay.onloadeddata = function() {
+		                            var name = id;
+		                            for (var i = 0; i < dataAudio.length; i++) {
+		                                var temp = dataAudio[i];
+		                                if (temp.name != name) continue;
+		                                console.log(temp.bfb)
+		                                this.currentTime = this.duration * (temp.bfb /
+		                                    100);
+		                            }
+		                        }
+		                    })
+		                }
+		                console.log(dataVideo)
+		                // 判断
+		                if (canDrag == 0) {
+		                    onloand()
+		                    $("video").each(function() {
+		                        var id = this.id;
+		                        var Play = videojs(id)
+		                        Play.disableProgress({
+		                            autoDisable: true
+		                        });
+		                    })
+		                }
+		            }
+		            return reactiveFlag = true
+		        });
+		        $('.v-model').hide()
+		    }
+		})
+	</script>
+	
+</html>
