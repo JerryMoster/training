@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body style="margin:0;width:100%;">
+        <iframe id="myframe" src="home.html" frameborder="0" width="100%" height="800" allowfullscreen="true"
+            webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+    </body>
+    <script type="text/javascript" src="libs/jquery-1.11.1.min.js"></script>
+    <script src="libs/video.min.js"></script>
+    <script type="text/javascript">
+        var result = null;
+        //父级监听
+        window.addEventListener('message', function(e) {
+            //从子页面传递的值,会保存到服务器
+            console.log(e.data);
+            result = JSON.stringify(e.data);
+            // console.log(result)
+        });
+        window.onload = function() {
+            // if (result)
+            // 	console.log(JSON.parse(result));
+            // console.log("*********")
+            var myframe = document.getElementById('myframe');
+            //服务器获取的值传递到子页面
+            myframe.contentWindow.postMessage({
+                canDrag: 0, //0禁止拖动, 1可以拖动
+                dataVideo: [{
+                        name: "my_video_1_html5_api",
+                        bfb: 90
+                    },
+                    {
+                        name: "my_video_2_html5_api",
+                        bfb: 10
+                    }
+                ],
+
+                dataAudio: [
+                    {
+                        name: "audio1",
+                        bfb: 90
+                    },
+                    {
+                        name: "audio2",
+                        bfb: 30
+                    },
+                ]
+            }, 'http://127.0.0.1:8848')
+        }
+    </script>
+</html>
